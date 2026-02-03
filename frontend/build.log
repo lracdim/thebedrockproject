@@ -1,0 +1,35 @@
+
+> thebedrockproject@1.0.0 build:eleventy
+> npx @11ty/eleventy
+
+[dotenv@17.2.3] injecting env (3) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[11ty] Problem writing Eleventy templates:
+[11ty] Output conflict: multiple input files are writing to `./_site/content/states/burnout/index.html`. Use distinct `permalink` values to resolve this conflict.
+[11ty]   1. ./src/content/states/burnout.md
+[11ty]   2. ./src/state-pages.njk (via DuplicatePermalinkOutputError)
+[11ty] 
+[11ty] Original error stack trace: (Repeated output has been truncated…)
+[11ty]     at TemplateMap.checkForDuplicatePermalinks (file:///C:/Users/DELL/Documents/GitHub/thebedrockproject/frontend/node_modules/@11ty/eleventy/src/TemplateMap.js:589:10)
+[11ty]     at TemplateMap.cache (file:///C:/Users/DELL/Documents/GitHub/thebedrockproject/frontend/node_modules/@11ty/eleventy/src/TemplateMap.js:296:8)
+[11ty]     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[11ty]     at async TemplateWriter._createTemplateMap (file:///C:/Users/DELL/Documents/GitHub/thebedrockproject/frontend/node_modules/@11ty/eleventy/src/TemplateWriter.js:352:3)
+[11ty]     at async TemplateWriter.generateTemplates (file:///C:/Users/DELL/Documents/GitHub/thebedrockproject/frontend/node_modules/@11ty/eleventy/src/TemplateWriter.js:382:3)
+[11ty]     at async TemplateWriter.write (file:///C:/Users/DELL/Documents/GitHub/thebedrockproject/frontend/node_modules/@11ty/eleventy/src/TemplateWriter.js:430:38)
+[11ty]     at async Eleventy.executeBuild (file:///C:/Users/DELL/Documents/GitHub/thebedrockproject/frontend/node_modules/@11ty/eleventy/src/Eleventy.js:1438:19)
+[11ty]     at async exec (C:\Users\DELL\Documents\GitHub\thebedrockproject\frontend\node_modules\@11ty\eleventy\cmd.cjs:131:5)
+[11ty] Benchmark   1170ms  73%     1× (Data) `./src/_data/sanity.js`
+[11ty] Copied 4 Wrote 0 files in 1.61 seconds (v3.1.2)
+[11ty] Eleventy Fatal Error (CLI):
+[11ty] Output conflict: multiple input files are writing to `./_site/content/states/burnout/index.html`. Use distinct `permalink` values to resolve this conflict.
+[11ty]   1. ./src/content/states/burnout.md
+[11ty]   2. ./src/state-pages.njk (via DuplicatePermalinkOutputError)
+[11ty] 
+[11ty] Original error stack trace: (Repeated output has been truncated…)
+[11ty]     at TemplateMap.checkForDuplicatePermalinks (file:///C:/Users/DELL/Documents/GitHub/thebedrockproject/frontend/node_modules/@11ty/eleventy/src/TemplateMap.js:589:10)
+[11ty]     at TemplateMap.cache (file:///C:/Users/DELL/Documents/GitHub/thebedrockproject/frontend/node_modules/@11ty/eleventy/src/TemplateMap.js:296:8)
+[11ty]     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[11ty]     at async TemplateWriter._createTemplateMap (file:///C:/Users/DELL/Documents/GitHub/thebedrockproject/frontend/node_modules/@11ty/eleventy/src/TemplateWriter.js:352:3)
+[11ty]     at async TemplateWriter.generateTemplates (file:///C:/Users/DELL/Documents/GitHub/thebedrockproject/frontend/node_modules/@11ty/eleventy/src/TemplateWriter.js:382:3)
+[11ty]     at async TemplateWriter.write (file:///C:/Users/DELL/Documents/GitHub/thebedrockproject/frontend/node_modules/@11ty/eleventy/src/TemplateWriter.js:430:38)
+[11ty]     at async Eleventy.executeBuild (file:///C:/Users/DELL/Documents/GitHub/thebedrockproject/frontend/node_modules/@11ty/eleventy/src/Eleventy.js:1438:19)
+[11ty]     at async exec (C:\Users\DELL\Documents\GitHub\thebedrockproject\frontend\node_modules\@11ty\eleventy\cmd.cjs:131:5)

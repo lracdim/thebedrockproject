@@ -1,0 +1,23 @@
+[
+    {
+        "title": "The Weight of Glory",
+        "url": "#",
+        "description": "Why the heaviness of God is the only thing that can displace the heaviness of the world.",
+        "pressure": "High",
+        "readingTime": "12 min"
+    },
+    {
+        "title": "Silence as a Weapon",
+        "url": "#",
+        "description": "In a noisy age, silence is not retreat. It is an offensive maneuver.",
+        "pressure": "Medium",
+        "readingTime": "8 min"
+    },
+    {
+        "title": "A Theology of Sleep",
+        "url": "#",
+        "description": "To sleep is to trust. An examination of rest as an act of war against anxiety.",
+        "pressure": "Low",
+        "readingTime": "6 min"
+    }
+]

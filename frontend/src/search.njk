@@ -1,0 +1,45 @@
+---
+layout: base.njk
+title: "Search"
+description: "Search the archives."
+---
+
+<div class="container" style="margin-top: var(--space-l);">
+  <h1 style="margin-bottom: var(--space-m);">Search</h1>
+  
+  <input type="text" id="searchInput" placeholder="Search by scripture, pressure, or title..." 
+    style="width: 100%; padding: var(--space-s); font-family: var(--font-sans); font-size: 1.1rem; border: 1px solid var(--color-text-charcoal); margin-bottom: var(--space-l);">
+
+  <div id="searchResults">
+    <ul style="list-style: none; padding: 0;">
+      {% for essay in essays %}
+      <li class="search-item" data-title="{{ essay.title | lower }}" data-pressure="{{ essay.pressure | lower }}" data-desc="{{ essay.description | lower }}" style="margin-bottom: var(--space-m); border-bottom: 1px solid #eee; padding-bottom: var(--space-s);">
+        <a href="{{ essay.url }}" style="font-weight: 600; font-family: var(--font-serif); font-size: 1.2rem;">{{ essay.title }}</a>
+        <p style="margin: 4px 0;">{{ essay.description }}</p>
+        <small class="pressure-tag">{{ essay.pressure }}</small>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+<script>
+  const searchInput = document.getElementById('searchInput');
+  const items = document.querySelectorAll('.search-item');
+
+  searchInput.addEventListener('input', (e) => {
+    const term = e.target.value.toLowerCase();
+    
+    items.forEach(item => {
+      const title = item.getAttribute('data-title');
+      const pressure = item.getAttribute('data-pressure');
+      const desc = item.getAttribute('data-desc');
+      
+      if (title.includes(term) || pressure.includes(term) || desc.includes(term)) {
+        item.style.display = 'block';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  });
+</script>

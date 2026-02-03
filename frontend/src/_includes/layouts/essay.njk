@@ -1,0 +1,79 @@
+---
+layout: base.njk
+---
+
+<article class="essay container max-w-[800px] mt-16 mode-full">
+  
+  <!-- Header -->
+  <header class="text-center mb-16 px-4">
+    <div class="inline-block bg-gray-100 text-text-charcoal px-3 py-1 rounded text-xs uppercase tracking-widest font-bold mb-6">
+      Pressure: {{ essay.pressure }}
+    </div>
+    <h1 class="font-serif text-5xl md:text-6xl text-text-charcoal mb-6 leading-tight">{{ essay.title }}</h1>
+    <div class="text-text-light font-sans text-sm flex justify-center items-center gap-4">
+      <span>{{ essay.readingTime }} Read</span>
+      <span class="w-1 h-1 bg-gray-400 rounded-full"></span>
+      <span>Scripture: {{ essay.centralScripture }}</span>
+    </div>
+    {% if essay.thesis %}
+    <div class="mt-8 font-serif text-xl italic text-text-charcoal/80 max-w-2xl mx-auto">
+      "{{ essay.thesis }}"
+    </div>
+    {% endif %}
+  </header>
+
+  <!-- Faith Compression Toggles -->
+  <div class="compression-controls flex justify-center gap-4 mb-16 border-b border-border-subtle pb-8 sticky top-0 bg-bg-ivory/95 backdrop-blur z-10 py-4 transition-all" id="compression-controls">
+    <span class="text-sm font-bold self-center mr-2 hidden md:inline">View Mode:</span>
+    <button class="btn border border-border-subtle text-text-charcoal hover:bg-gray-50" data-compression="full">Full Essay</button>
+    <button class="btn border border-border-subtle text-text-charcoal hover:bg-gray-50" data-compression="5min">5-Min Read</button>
+    <button class="btn border border-border-subtle text-text-charcoal hover:bg-gray-50" data-compression="bedrock">Bedrock Truth</button>
+  </div>
+
+  <!-- Content -->
+  <div class="essay-content prose prose-lg prose-headings:font-serif prose-p:font-serif prose-p:leading-loose mx-auto">
+     <!-- Manual Portable Text Rendering -->
+    {% for block in essay.content %}
+      {% if block.style == 'h2' %}
+        <h2>{% for span in block.children %}{{ span.text }}{% endfor %}</h2>
+      {% elseif block.style == 'h3' %}
+        <h3>{% for span in block.children %}{{ span.text }}{% endfor %}</h3>
+      {% elseif block.style == 'blockquote' %}
+        <blockquote>{% for span in block.children %}{{ span.text }}{% endfor %}</blockquote>
+      {% else %}
+        <p>{% for span in block.children %}{{ span.text }}{% endfor %}</p>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <!-- Integrity Block -->
+  <div class="integrity-block mt-24 pt-12 border-t-2 border-border-subtle">
+    <h3 class="font-sans text-xs font-bold uppercase tracking-widest text-text-light mb-8 text-center">Integrity Check</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 bg-white p-8 rounded border border-border-subtle">
+      <div class="border-b md:border-b-0 md:border-r border-border-subtle pb-6 md:pb-0 md:pr-6">
+        <strong class="block font-sans text-sm uppercase text-text-charcoal mb-3">What this teaching does NOT promise:</strong>
+        <p class="text-sm text-text-light m-0">It does not promise ease, wealth, or immediate emotional relief. It promises that the Rock will hold you, not that the storm will stop.</p>
+      </div>
+      <div class="md:pl-6">
+        <strong class="block font-sans text-sm uppercase text-text-charcoal mb-3">Who this teaching is NOT for:</strong>
+        <p class="text-sm text-text-light m-0">Those seeking validation for their current state without desire for transformation, or those who demand God explain Himself before they obey.</p>
+      </div>
+    </div>
+  </div>
+
+</article>
+
+<!-- SEO Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{{ essay.title }}",
+  "description": "{{ essay.thesis | safe }}",
+  "author": {
+    "@type": "Person",
+    "name": "The Bedrock Project"
+  },
+  "datePublished": "{{ essay.date }}"
+}
+</script>

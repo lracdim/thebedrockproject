@@ -1,0 +1,82 @@
+---
+layout: base.njk
+---
+
+<div class="container max-w-4xl mx-auto py-16">
+  
+  <!-- Header -->
+  <header class="mb-16 border-b border-border-subtle pb-12">
+    <div class="flex items-center gap-4 mb-6">
+      <a href="/soul-states/" class="text-sm font-bold uppercase tracking-widest text-text-light hover:text-accent-blue">← Back to Index</a>
+    </div>
+    
+    <div class="flex items-center gap-4 mb-6">
+      <div class="w-16 h-16 rounded bg-gray-100 flex items-center justify-center text-3xl">
+        {% if state.icon == 'battery' %}🔋{% elseif state.icon == 'waves' %}≈{% elseif state.icon == 'u-turn' %}↺{% else %}☁{% endif %}
+      </div>
+      <h1 class="font-serif text-5xl text-text-charcoal">{{ state.title }}</h1>
+    </div>
+    <p class="font-serif text-2xl text-text-light leading-relaxed max-w-2xl bg-gray-50 p-6 rounded border-l-4 border-accent-blue">
+      {{ state.definition }}
+    </p>
+  </header>
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+    
+    <!-- Main Content -->
+    <main class="lg:col-span-8 space-y-12">
+      
+      <!-- Manifestations -->
+      <section>
+        <h3 class="font-sans text-xs font-bold uppercase tracking-widest text-text-light mb-6 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-accent-blue"></span> Symptoms
+        </h3>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white border border-border-subtle p-6 rounded">
+            <h4 class="font-serif text-lg text-text-charcoal mb-3">Emotional</h4>
+            <p class="text-text-light text-sm leading-relaxed">{{ state.manifestations.emotional }}</p>
+          </div>
+          <div class="bg-white border border-border-subtle p-6 rounded">
+            <h4 class="font-serif text-lg text-text-charcoal mb-3">Spiritual</h4>
+            <p class="text-text-light text-sm leading-relaxed">{{ state.manifestations.spiritual }}</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- False Beliefs -->
+      <section>
+        <h3 class="font-sans text-xs font-bold uppercase tracking-widest text-text-light mb-6 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-red-400"></span> False Beliefs
+        </h3>
+        <ul class="space-y-3">
+          {% for belief in state.falseBeliefs %}
+          <li class="flex gap-3 text-text-charcoal">
+            <span class="text-red-400 font-bold">×</span>
+            <span>{{ belief }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <!-- Scripture -->
+      <section class="bg-bg-ivory border border-border-subtle p-8 rounded relative overflow-hidden">
+        <div class="absolute top-0 right-0 p-4 opacity-5 text-6xl font-serif">†</div>
+        <h3 class="font-sans text-xs font-bold uppercase tracking-widest text-text-light mb-4">The Prescription</h3>
+        <blockquote class="font-serif text-xl italic text-text-charcoal mb-4">
+          "{{ state.scripture.text }}"
+        </blockquote>
+        <cite class="block text-sm font-bold not-italic text-text-charcoal mb-6">— {{ state.scripture.reference }}</cite>
+        <div class="text-sm text-text-light border-t border-border-subtle pt-4">
+          <strong class="text-text-charcoal">Insight:</strong> {{ state.scripture.commentary }}
+        </div>
+      </section>
+
+    </main>
+    
+    <!-- Sidebar -->
+    <aside class="lg:col-span-4">
+       <!-- Potential Sidebar content here -->
+    </aside>
+
+  </div>
+</div>

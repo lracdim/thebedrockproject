@@ -1,0 +1,30 @@
+---
+layout: base.njk
+title: "Essay Archive"
+description: "A chronological archive of all Bedrock essays."
+---
+
+<div class="container py-24">
+  <div class="text-center mb-16">
+    <h1 class="font-serif text-5xl mb-6">Essay Archive</h1>
+    <p class="text-xl text-text-light font-serif italic max-w-2xl mx-auto">
+      Durable words for a fragile age.
+    </p>
+  </div>
+
+  <div class="max-w-3xl mx-auto space-y-16">
+    {% for essay in sanity.essays %}
+    <article class="pb-12 border-b border-border-subtle last:border-0 relative group">
+      <div class="text-xs font-bold uppercase tracking-wider text-text-light mb-4 flex items-center gap-3">
+        <span class="bg-gray-200 text-text-charcoal px-2 py-0.5 rounded text-[10px] uppercase tracking-wide">Pressure: {{ essay.pressure }}</span>
+        <span>{{ essay.date | readableDate }}</span>
+      </div>
+      <h3 class="font-serif text-4xl mb-4 leading-tight group-hover:text-accent-blue transition-colors">
+        <a href="/content/essays/{{ essay.slug.current }}/">{{ essay.title }}</a>
+      </h3>
+      <p class="font-serif italic text-xl text-text-light mb-4">"{{ essay.thesis }}"</p>
+      <a href="/content/essays/{{ essay.slug.current }}/" class="text-sm font-bold text-text-charcoal hover:text-accent-blue">Read Essay →</a>
+    </article>
+    {% endfor %}
+  </div>
+</div>

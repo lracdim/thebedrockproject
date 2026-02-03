@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title | default("The Bedrock Project") }}</title>
+  <meta name="description" content="{{ description | default("A static-first theological publishing platform.") }}">
+  <link rel="canonical" href="https://thebedrockproject.com{{ page.url }}">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://thebedrockproject.com{{ page.url }}">
+  <meta property="og:title" content="{{ title | default('The Bedrock Project') }}">
+  <meta property="og:description" content="{{ description | default('A static-first theological publishing platform.') }}">
+  <meta property="og:image" content="https://thebedrockproject.com/assets/img/og-image.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://thebedrockproject.com{{ page.url }}">
+  <meta property="twitter:title" content="{{ title | default('The Bedrock Project') }}">
+  <meta property="twitter:description" content="{{ description | default('A static-first theological publishing platform.') }}">
+  <meta property="twitter:image" content="https://thebedrockproject.com/assets/img/og-image.jpg">
+
+  <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body class="bg-bg-ivory text-text-charcoal font-sans antialiased">
+  {% include "partials/nav.njk" %}
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  <footer class="mt-24 pt-10 pb-10 border-t border-border-subtle container text-sm text-text-light">
+    <div class="flex justify-between">
+      <div class="footer-brand">
+        <strong>The Bedrock Project</strong><br>
+        © 2025 The Bedrock Project. All rights reserved.
+      </div>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-text-charcoal">Privacy</a>
+        <a href="#" class="hover:text-text-charcoal">Terms</a>
+        <a href="#" class="hover:text-text-charcoal">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/compression.js"></script>
+</body>
+</html>

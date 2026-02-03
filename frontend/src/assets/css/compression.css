@@ -1,0 +1,48 @@
+/* Faith Compression Styles */
+
+/* Default (Full) - everything visible */
+
+/* 5-Minute Mode */
+.mode-5min .detail-only {
+    display: none;
+}
+
+.mode-5min .exegetical-layer,
+.mode-5min .counter-argument-layer {
+    display: none;
+}
+
+/* 1-Minute (Bedrock) Mode */
+.mode-1min .detail-only,
+.mode-1min .standard-only {
+    display: none;
+}
+
+.mode-1min .essay-content p:not(.thesis):not(.core-truth) {
+    display: none;
+    /* Hide regular paragraphs */
+}
+
+.mode-1min .exegetical-layer,
+.mode-1min .application-layer,
+.mode-1min .counter-argument-layer {
+    display: none;
+}
+
+.mode-1min h2,
+.mode-1min h3,
+.mode-1min h4 {
+    display: none;
+    /* Hide subheaders in 1-min mode usually */
+}
+
+/* Ensure Thesis and Scripture stay visible */
+.mode-1min .thesis,
+.mode-1min .scripture-block {
+    display: block;
+}
+
+/* Transitions */
+.essay-content * {
+    transition: opacity 0.3s ease;
+}

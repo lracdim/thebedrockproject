@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply bg-bg-ivory text-text-charcoal antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-serif font-semibold;
+  }
+
+  h1 {
+    @apply text-5xl leading-tight -tracking-wide;
+  }
+
+  h2 {
+    @apply text-4xl mb-6;
+  }
+
+  h3 {
+    @apply text-2xl mb-4;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center py-2 px-5 rounded font-sans font-semibold text-sm transition-all duration-200 cursor-pointer;
+  }
+
+  .btn-primary {
+    @apply bg-accent-blue text-white border border-accent-blue hover:bg-[#1a4585];
+  }
+
+  .btn-outline-light {
+    @apply bg-transparent text-white border border-white/30 hover:border-white;
+  }
+
+  .btn-sm {
+    @apply py-1.5 px-3 text-xs;
+  }
+
+  .container {
+    @apply max-w-[1100px] mx-auto px-6;
+  }
+
+  /* Compression Modes */
+  .mode-5min .detail-only,
+  .mode-5min .exegetical-layer,
+  .mode-5min .counter-argument-layer {
+    @apply hidden;
+  }
+
+  .mode-1min .detail-only,
+  .mode-1min .standard-only,
+  .mode-1min .essay-content p:not(.thesis):not(.core-truth),
+  .mode-1min .exegetical-layer,
+  .mode-1min .application-layer,
+  .mode-1min .counter-argument-layer,
+  .mode-1min h2,
+  .mode-1min h3,
+  .mode-1min h4 {
+    @apply hidden;
+  }
+
+  .mode-1min .thesis,
+  .mode-1min .scripture-block {
+    @apply block;
+  }
+
+  .essay-content * {
+    @apply transition-opacity duration-300;
+  }
+}

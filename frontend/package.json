@@ -1,0 +1,41 @@
+{
+  "name": "thebedrockproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "npx tailwindcss -i ./src/assets/css/base.css -o ./src/assets/css/styles.css",
+    "watch:css": "npx tailwindcss -i ./src/assets/css/base.css -o ./src/assets/css/styles.css --watch",
+    "build:eleventy": "npx @11ty/eleventy",
+    "watch:eleventy": "npx @11ty/eleventy --serve",
+    "build": "npm run build:css && npm run build:eleventy",
+    "start": "npm-run-all --parallel watch:css watch:eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lracdim/thebedrockproject.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/lracdim/thebedrockproject/issues"
+  },
+  "homepage": "https://github.com/lracdim/thebedrockproject#readme",
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "@sanity/client": "^7.14.1",
+    "dotenv": "^17.2.3",
+    "gray-matter": "^4.0.3",
+    "groq": "^5.7.0",
+    "luxon": "^3.7.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.19",
+    "autoprefixer": "^10.4.24",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.19"
+  }
+}
