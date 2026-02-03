@@ -2,7 +2,7 @@ require('dotenv').config();
 const { createClient } = require('@sanity/client');
 const groq = require('groq');
 
-const client = process.env.SANITY_PROJECT_ID 
+const client = process.env.SANITY_PROJECT_ID
     ? createClient({
         projectId: process.env.SANITY_PROJECT_ID,
         dataset: process.env.SANITY_DATASET,
@@ -13,7 +13,7 @@ const client = process.env.SANITY_PROJECT_ID
 
 module.exports = async function () {
     if (!client) {
-        console.warn('SANITY_PROJECT_ID is not set. Returning fallback data for Eleventy build.');
+        console.warn('⚠️  SANITY_PROJECT_ID is missing. Using fallback (empty data).');
         return {
             essays: [],
             states: [],
@@ -21,7 +21,10 @@ module.exports = async function () {
         };
     }
 
+    console.log('✅ SANITY_PROJECT_ID found. Fetching data from Sanity...');
     const essays = await client.fetch(groq`*[_type == "essay"] | order(date desc)`);
+    console.log(`✅ Fetched ${essays.length} essays.`);
+
     const states = await client.fetch(groq`*[_type == "soulState"]`);
     const manifesto = await client.fetch(groq`*[_type == "manifesto"][0]`);
 
